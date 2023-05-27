@@ -27,6 +27,8 @@ dependencies {
 
     // Thymeleaf 관련
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
 
     // Database 관련
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
