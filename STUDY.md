@@ -50,3 +50,11 @@ DDL_Data Definition Language : 테이블, 스키마, 인덱스, 뷰, 도메인�
 | GenerationType.IDENTITY       | 기본키 생성을 데이터베이스에 위임              |
 | GenerationType.SEQUENCE       | 데이터베이스 시퀀스 오브젝트를 이용한 기본키 생성     |
 | GenerationType.TABLE          | 키 생성용 테이블 사용 @TableGenerator 필요 |
+
+# JpaRepository 메소드 예시
+| 메소드                             | 기능          |
+|---------------------------------|-------------|
+| < S extends T > save (S entity) | 엔티티 저장 및 수정 |
+| void delete(T entity)           | 엔티티 삭제      |
+| count()                         | 엔티티 총 개수 반환 |
+| Iterable<T> findAll()           | 모든 엔티티 조회   |
