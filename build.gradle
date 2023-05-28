@@ -30,6 +30,8 @@ dependencies {
     // Thymeleaf 관련
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
 
 
     // Database 관련
@@ -43,6 +45,7 @@ dependencies {
 
     // Security 관련
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
 
 
     // SpringBoot 3.0 이상 QueryDsl
