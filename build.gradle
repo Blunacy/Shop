@@ -24,6 +24,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 
     // Thymeleaf 관련
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -40,6 +42,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // Security 관련
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
     // SpringBoot 3.0 이상 QueryDsl
