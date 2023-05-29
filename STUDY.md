@@ -58,3 +58,13 @@ DDL_Data Definition Language : 테이블, 스키마, 인덱스, 뷰, 도메인�
 | void delete(T entity)           | 엔티티 삭제      |
 | count()                         | 엔티티 총 개수 반환 |
 | Iterable<T> findAll()           | 모든 엔티티 조회   |
+
+# Cascade [영속성]
+| CASCADE 종류 | 설명                                          |
+|------------|---------------------------------------------|
+| PERSIST    | 부모 엔티티가 영속화될 때 지식 엔티티도 영속화                  |
+| MERGE      | 부모 엔티티가 병합될 때 자식 엔티티도 병합                    |
+| REMOVE     | 부모 엔티티가 삭제될 때 연관된 자식 엔티티도 삭제                |
+| REFRESH    | 부모 엔티티가 refresh 되면 연관된 자식 엔티티도 refresh      |
+| DETACH     | 부모 엔티티가 detach 되면 연관된 자식 엔티티도 detach 상태로 변경 |
+| ALL        | 부모 엔티티의 영속성 상태 변화를 자식 엔티티에 모두 전이            |
