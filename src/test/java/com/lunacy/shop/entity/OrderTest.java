@@ -3,6 +3,7 @@ package com.lunacy.shop.entity;
 import com.lunacy.shop.constant.ItemSellStatus;
 import com.lunacy.shop.repository.ItemRepository;
 import com.lunacy.shop.repository.MemberRepository;
+import com.lunacy.shop.repository.OrderItemRepository;
 import com.lunacy.shop.repository.OrderRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -34,6 +35,9 @@ class OrderTest {
 
   @Autowired
   MemberRepository memberRepository;
+
+  @Autowired
+  OrderItemRepository orderItemRepository;
 
   public Item createItem() {
     Item item = new Item();
@@ -98,5 +102,20 @@ class OrderTest {
     Order order = this.createOrder();
     order.getOrderItems().remove(0);
     em.flush();
+  }
+
+  @Test
+  @DisplayName("지연 로딩 테스트")
+  public void lazyLoadingTest(){
+    Order order = this.createOrder();
+    Long orderItemId = order.getOrderItems().get(0).getId();
+    em.flush();
+    em.clear();
+    OrderItem orderItem = orderItemRepository.findById(orderItemId)
+        .orElseThrow(EntityNotFoundException::new);
+    System.out.println("Order class : " + orderItem.getOrder().getClass());
+    System.out.println("===========================");
+    orderItem.getOrder().getOrderDate();
+    System.out.println("===========================");
   }
 }
