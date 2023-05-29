@@ -2,12 +2,15 @@ package com.lunacy.shop.service;
 
 import com.lunacy.shop.dto.ItemFormDto;
 import com.lunacy.shop.dto.ItemImgDto;
+import com.lunacy.shop.dto.ItemSearchDto;
 import com.lunacy.shop.entity.Item;
 import com.lunacy.shop.entity.ItemImg;
 import com.lunacy.shop.repository.ItemImgRepository;
 import com.lunacy.shop.repository.ItemRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -72,5 +75,9 @@ public class ItemService {
     }
 
     return item.getId();
+  }
+  @Transactional(readOnly = true)
+  public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
+    return itemRepository.getAdminItemPage(itemSearchDto, pageable);
   }
 }
