@@ -1,6 +1,7 @@
 package com.lunacy.shop.entity;
 
 import com.lunacy.shop.constant.ItemSellStatus;
+import com.lunacy.shop.dto.ItemFormDto;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "item")
 @Data
-public class Item {
+public class Item extends BaseEntity{
 
   @Id
   @Column(name = "item_id")
@@ -35,5 +36,13 @@ public class Item {
   private LocalDateTime regTime; // 등록 시간
 
   private LocalDateTime updateTime; // 수정 시간
+
+  public void updateItem(ItemFormDto itemFormDto){
+    this.itemNm = itemFormDto.getItemNm();
+    this.price = itemFormDto.getPrice();
+    this.stockNumber = itemFormDto.getStockNumber();
+    this.itemDetail = itemFormDto.getItemDetail();
+    this.itemSellStatus = itemFormDto.getItemSellStatus();
+  }
 }
 
